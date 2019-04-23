@@ -6,8 +6,6 @@ import matplotlib
 import numpy as np
 import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
-import PIL
-from wordcloud import WordCloud
 
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient["mydatabase"]
@@ -204,43 +202,6 @@ def success_chance(results, goal):
     return round((success / total),3)
 
 
-'''
-############################
-############################
-
-# Python program to generate WordCloud 
-def word_cloud(text):
-    wordcloud = WordCloud().generate(text)
-
-    # Display the generated image:
-    # the matplotlib way:
-    import matplotlib.pyplot as plt
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis("off")
-
-    # lower max_font_size
-    wordcloud = WordCloud(max_font_size=40).generate(text)
-    plt.figure()
-    plt.imshow(wordcloud, interpolation="bilinear")
-    plt.axis("off")
-    image = wordcloud.to_image()
-    image.show()
-    #plt.show()
-
-def list_to_text(entry_list):
-    new_string
-    for item in entry_list:
-        new_string.append(item[1])
-    return new_string
-        
-
-############################
-############################
-'''
-
-
-
-
 def main():
     web_input = ['category', 'Poetry', 'country', 'GB']
 
@@ -281,8 +242,6 @@ def main():
 
     
     success, fail, labels = (clean_lists(results[1:500]))
-
-    print(results[1][name])
 
     # plot histograms of all the variables
     for i in range(0,len(success)):
